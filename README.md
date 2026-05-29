@@ -7,3 +7,7 @@ A simple Python CLI password generator.
 - generate password
 - choose character type
 - save history
+- view history
+
+## How to run 
+main1.py
