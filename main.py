@@ -2,7 +2,6 @@ import random
 import string
 import os
 
-print("test")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE_NAME = os.path.join(BASE_DIR, "password_history.txt")
 
