@@ -1,51 +1,12 @@
-import random
-import string
-import os
+from password_utils import (
+    get_characters,
+    generate_password
+)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FILE_NAME = os.path.join(BASE_DIR, "password_history.txt")
-
-def save_password(password):
-    with open(FILE_NAME,"a")as file:
-        file.write(password+"\n")
-
-def get_characters(option):
-    if option == "1":
-        return string.ascii_letters
-    elif option == "2":
-        return string.ascii_letters + string.digits
-    elif option == "3":
-        return string.ascii_letters + string.digits + string.punctuation
-    else:
-        return string.ascii_letters
-
-
-def generate_password(length, characters):
-    password = ""
-
-    for _ in range(length):
-        password += random.choice(characters)
-
-    return password
-
-def view_history():
-    try:
-        with open(FILE_NAME, "r") as file:
-            lines=file.readlines()
-
-            if len(lines)==0:
-                print("No saved passwords.")
-
-            else:
-                print("\n---Password History---")
-                for i, line in enumerate(lines):
-                    print(f"{i+1}.{line.strip()}")
-
-    except FileNotFoundError:
-        print("No saved passowrds yet.")
-
-
-
+from file_utils import (
+    save_password,
+    view_history
+)
 
 while True:
     print("\n===== PASSWORD GENERATOR =====")
